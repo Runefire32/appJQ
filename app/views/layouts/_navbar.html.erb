@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <%= link_to "Sandbox App", root_path, class: "navbar-brand" %>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <%= link_to "New task", new_task_path, class: "nav-link" %>
+      </li>
+      
+    </ul>
+<div class="dropdown">
+  <img onclick="myFunction()" class="rounded-circle dropbtn" height="50px" width="50px" href=""# src="http://image.noelshack.com/fichiers/2018/47/2/1542729869-phoenix-closeup.jpg">
+  <div id="myDropdown" class="dropdown-content">
+    <% unless user_signed_in? %>
+    <p><a class="nav-link" href="#ex1" rel="modal:open">Signup</a></p>
+    <p><a class="nav-link" href="#ex2" rel="modal:open">Login</a></p>
+    <%else%>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+    <% end %>
+  </div>
+</div>
+  </div>
+</nav>
+
+<div id="ex1" class="modal">
+<%= render 'devise/registrations/newform' %> 
+</div>
+
+<div id="ex2" class="modal">
+<%= render 'devise/sessions/newsession' %> 
+</div>
+
+<!-- script pour quitter le modal en cliquant en dehors -->
+<script type="text/javascript">
+  $(document).click(function(event) {
+  if (!$(event.target).closest(".modal,.js-open-modal").length) {
+    $("body").find(".modal").removeClass("visible");
+  }
+</script>

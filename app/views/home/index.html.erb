@@ -1,0 +1,159 @@
+<h1 class="text-center mb-4"><span class="badge badge-light">Welcome to my todolist app</span></h1>
+
+<%= render 'layouts/task_form'  %>
+<!-- Tab links -->
+
+<div class="tab">
+  <button class="tablinks" onclick="openList(event, 'Historical')">Historical Fiction</button>
+  <button class="tablinks" onclick="openList(event, 'Essay')">Essay</button>
+  <button class="tablinks" onclick="openList(event, 'Meta')">Meta Fiction</button>
+</div>
+
+<!-- Tab content -->
+<br>
+<div id="Historical" class="tabcontent">
+  <ul>
+  <% @categories.where(id: 2).each do  |category|%>
+  <li><span class="badge badge-success" ><%= category.title %></span></li>
+  <div class="card">
+    <ul>
+      <% category.tasks.each do |task|  %>
+      <li>
+        <%= task.title  %>
+        <% unless task.deadline.nil? %>
+          , to read: <%= task.deadline.strftime('%D')  %>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  </ul>
+</div>
+
+<div id="Essay" class="tabcontent">
+<ul>
+  <% @categories.where(id: 3).each do  |category|%>
+  <li><span class="badge badge-success" ><%= category.title %></span></li>
+  <div class="card">
+    <ul>
+      <% category.tasks.each do |task|  %>
+      <li>
+        <%= task.title  %>
+        <% unless task.deadline.nil? %>
+          , to read: <%= task.deadline.strftime('%D')  %>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  </ul>
+</div>
+
+<div id="Meta" class="tabcontent">
+<ul>
+  <% @categories.where(id: 8).each do  |category|%>
+  <li><span class="badge badge-success" ><%= category.title %></span></li>
+  <div class="card">
+    <ul>
+      <% category.tasks.each do |task|  %>
+      <li>
+        <%= task.title  %>
+        <% unless task.deadline.nil? %>
+          , to read: <%= task.deadline.strftime('%D')  %>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  </ul>
+</div>
+
+<div class="container">
+  <ul>
+  <% @categories.each do  |category|%>
+  <li><span class="badge badge-success" ><%= category.title %></span></li>
+  <div class="card">
+    <ul>
+      <% category.tasks.each do |task|  %>
+      <li>
+        <%= task.title  %>
+        <% unless task.deadline.nil? %>
+          , to read: <%= task.deadline.strftime('%D')  %>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  </ul>
+</div>
+
+<!-- :) -->
+
+<div class="w3-content w3-display-container container-image">
+<img class="mySlides" src="https://robohash.org/etporroenim.png">
+<img class="mySlides" src="https://robohash.org/fugiatexplicaboat.png">
+<img class="mySlides" src="https://robohash.org/consequunturautpossimus.png">
+<img class="mySlides" src="https://robohash.org/quamdeseruntid.png">
+<img class="mySlides" src="https://robohash.org/quastotamtemporibus.png">
+<img class="mySlides" src="https://robohash.org/estdebitisaliquam.png">
+<img class="mySlides" src="https://robohash.org/inciduntetsequi.png">
+<img class="mySlides" src="https://robohash.org/adolormolestiae.png">
+<img class="mySlides" src="https://robohash.org/uteaautem.png">
+<img class="mySlides" src="https://robohash.org/harumaperiamimpedit.png">
+<img class="mySlides" src="https://robohash.org/dignissimosdebitisest.png">
+<img class="mySlides" src="https://robohash.org/molestiaequisapiente.png">
+<img class="mySlides" src="https://robohash.org/impeditquiaexercitationem.png">
+<img class="mySlides" src="https://robohash.org/etautnostrum.png">
+<img class="mySlides" src="https://robohash.org/omnisfugiatqui.png">
+<img class="mySlides" src="https://robohash.org/perferendisetnihil.png">
+<img class="mySlides" src="https://robohash.org/praesentiumsintquam.png">
+<img class="mySlides" src="https://robohash.org/veroquosut.png">
+<img class="mySlides" src="https://robohash.org/aexplicabovoluptas.png">
+<img class="mySlides" src="https://robohash.org/inmagniperspiciatis.png">
+<img class="mySlides" src="https://robohash.org/etvoluptassint.png">
+
+<button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+<button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+
+</div>
+<script type="text/javascript">
+  var slideIndex = 1;
+showDivs(slideIndex);
+carousel();
+
+function plusDivs(n) {
+    showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if (n > x.length) {slideIndex = 1} 
+    if (n < 1) {slideIndex = x.length} ;
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none"; 
+    }
+    x[slideIndex-1].style.display = "block"; 
+}
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 5000); // timer
+}
+</script>
+<br>
+<br>
+<br>
+<br>
+<br>
