@@ -2,7 +2,7 @@
 
 # Heroku prod :
 
-https://thetodolistomegad.herokuapp.com/
+https://jqapp.herokuapp.com/
 
 ## 📰 ToDolist
 
