@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="text-center mb-4"><span class="badge badge-dark">Welcome to the famous Email list</span></h1>
+
+<table style="margin: 0 auto; width: 70%;" class="table table-dark">
+  <thead>
+    <tr>
+     
+       <th scope="col"></th>
+            <th scope="col">Object</th>
+            <th scope="col">Delivered</th>
+            <th scope="col"></th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+  
+    <% Email.all.each do |mail| %>
+        <tr id="<%= mail.id %>">
+            <th scope="row">
+                <%= mail.id %>
+            </th>
+            <td>
+                <%= mail.object %>
+            </td>
+            <td>
+                <%= mail.created_at %>
+            </td>
+            <td>
+                <div class="w3-container">
+                    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green" style="border-radius: 15px;">Details</button>
+                    <div id="id01" class="w3-modal">
+                        <div class="w3-modal-content w3-animate-zoom">
+                            <header style="padding-top: 5px; border-top-right-radius: 5px; border-top-left-radius: 5px;" class="w3-container w3-dark-grey">
+                                <span style="border-top-right-radius: 5px;" onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                                <h2><strong>Object :</strong><%= mail.object %></h2>
+                            </header>
+                            <br>
+                            <div class="w3-container">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <strong><p style="color: black; font-size: 15px;">Email body:</p></strong>
+                                        <p style="color: black;">
+                                            <%= mail.body %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div><br>
+                        </div>
+                 </div>
+            <%= link_to 'détruire', { action: :destroy, id: mail.id }, :method => :delete, style:"background-color: red;  border-radius: 15px;", class:"btn btn-default btn-lg",
+                 data: { confirm: "Delete this mail ?" }, remote: true %> 
+              
+                </div>
+            </td>
+        </tr>
+        <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<!-- script pour quitter le modal en cliquant en dehors -->
+<script type="text/javascript">
+  $(document).click(function(event) {
+  if (!$(event.target).closest(".modal,.js-open-modal").length) {
+    $("body").find(".modal").removeClass("visible");
+  }
+</script>

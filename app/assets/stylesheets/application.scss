@@ -6,10 +6,33 @@
 @import "components/*";
 
 
+.show {display:block;}
+.table.table-dark {
+  border-style: transparent;
+  border-radius: 20px;
+ 
+ 
+  
+ 
+
+background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(2, 20, 255, 0.5)),
+url("https://wallpapercave.com/wp/tasDaWm.jpg");
+}
+
+
+
+.badge.badge-dark {
+background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(2, 20, 255, 0.5)),
+url("https://wallpapercave.com/wp/tasDaWm.jpg");
+color: black;
+
+}
 body {
 
-background-image: linear-gradient(to right bottom, #21262e, #26303f, #2b3950, #314362, #374d74);
-
+background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
+url("https://wallpapercave.com/wp/tasDaWm.jpg");
+color: white;
+text-align: center;
 }
 
 .mySlides {
@@ -99,5 +122,81 @@ background-image: linear-gradient(to right bottom, #21262e, #26303f, #2b3950, #3
     border-top: none;
 }
 
-#Paris {
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+th {
+  padding-bottom: 5px;
+  border-radius: 20px;
+}
+
+td {
+  
+  padding: 0 5px 7px;
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+    
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+label {
+  display: block;
 }
